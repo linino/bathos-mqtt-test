@@ -1,0 +1,20 @@
+bathos mqtt sample for the modulino board (esp8266 soc).
+
+Publishes jiffies every 0.5s, broker = test.mqtt.org, topic = bathos-jiffies.
+
+Should automatically reconnect in case network goes down and then up again.
+Build:
+
+# bathos-mcuio source directory is expected to be in ../
+
+make modulino_esp8266_defconfig
+make ESP8266_STATION_HOSTNAME=\"some-name\" \
+     ESP8266_ESSID=\"your-wifi-network-essid\" \
+     ESP8266_PASSWD=\"your-wifi-network-password\"
+
+Elf executable will be bathos-build/bathos.
+Binaries ready for flashing will be bathos-build/bathos-0x00000.bin and
+bathos-0x40000.bin.
+
+Have fun
+Davide
