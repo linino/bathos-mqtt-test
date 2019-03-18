@@ -119,10 +119,6 @@ static void publisher_error_handler(struct event_handler_data *d)
 	struct mqtt_bathos_client *client = d->data;
 
 	printf("publisher error (client %p)\n", client);
-	if (client != global_data.client) {
-		printf("internal error, not my client\n");
-		return;
-	}
 	bathos_mqtt_publisher_fini(client);
 	global_data.client = NULL;
 	global_data.state = NETWORK_UP;
